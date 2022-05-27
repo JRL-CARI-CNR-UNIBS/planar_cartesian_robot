@@ -1,0 +1,11 @@
+moveit_setup_assistant_config:
+  URDF:
+    package: planar_cartesian_robot_description
+    relative_path: urdf/cartesian_cell.xacro
+    xacro_args: ""
+  SRDF:
+    relative_path: config/cartesian_cell.srdf
+  CONFIG:
+    author_name: Marco Faroni
+    author_email: marco.faroni@stiima.cnr.it
+    generated_timestamp: 1651245671

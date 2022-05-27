@@ -1,0 +1,14 @@
+planner_names_map:
+  dirrt_paper: dirrt_paper
+  mab_uniform_volume: mab_uniform_volume
+  mab_uniform: mab_uniform
+  mab_egreedy_10: mab_egreedy_10
+  mab_egreedy_20: mab_egreedy_20
+  mab_ts: mab_ts
+  mab_ts_bernoulli: mab_ts_bernoulli
+  mab_ucb1: mab_ucb1
+  mab_ucb1_bernoulli: mab_ucb1_bernoulli
+  mab_egreedy_20_bernoulli: mab_egreedy_20_bernoulli
+  mab_egreedy_50_bernoulli: mab_egreedy_50_bernoulli
+
+boxplot_planning_times: [0.25, 0.5, 1.0, 2.0]

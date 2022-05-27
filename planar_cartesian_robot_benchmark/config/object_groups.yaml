@@ -1,0 +1,38 @@
+perimeter:
+- {type: "box_long_hor",   frame: "world", position: [  0, 0,  0], quaternion: [0, 0, 0, 1 ]}
+- {type: "box_long_hor",   frame: "world", position: [  0, 1,  0], quaternion: [0, 0, 0, 1 ]}
+- {type: "box_long_ver",   frame: "world", position: [  0, 0,  0], quaternion: [0, 0, 0, 1 ]}
+- {type: "box_long_ver",   frame: "world", position: [  1, 0,  0], quaternion: [0, 0, 0, 1 ]}
+
+
+maze_complex:
+- {type: "box_short_ver",   frame: "world", position: [  0.7, 0.825,  0], quaternion: [0, 0, 0, 1 ]}
+- {type: "box_short_hor",   frame: "world", position: [  0.825, 0.7,  0], quaternion: [0, 0, 0, 1 ]}
+- {type: "box_short_ver",   frame: "world", position: [  0.7, 0.25,  0], quaternion: [0, 0, 0, 1 ]}
+- {type: "box_short_hor",   frame: "world", position: [  0.85, 0.4,  0], quaternion: [0, 0, 0, 1 ]}
+- {type: "box_medium_ver",   frame: "world", position: [  0.4, 0.35,  0], quaternion: [0, 0, 0, 1 ]}
+- {type: "box_short_ver",   frame: "world", position: [  0.2, 0.125,  0], quaternion: [0, 0, 0, 1 ]}
+- {type: "box_short_ver",   frame: "world", position: [  0.2, 0.875,  0], quaternion: [0, 0, 0, 1 ]}
+- {type: "box_short_hor",   frame: "world", position: [  0.125, 0.6,  0], quaternion: [0, 0, 0, 1 ]}
+- {type: "box_medium_ver",   frame: "world", position: [  0.575, 0.65,  0], quaternion: [0, 0, 0, 1 ]}
+- {type: "box_short_hor",   frame: "world", position: [  0.125, 0.4,  0], quaternion: [0, 0, 0, 1 ]}
+- {type: "box_short_hor",   frame: "world", position: [  0.75, 0.55,  0], quaternion: [0, 0, 0, 1 ]}
+- {type: "box_short_hor",   frame: "world", position: [  0.75, 0.125,  0], quaternion: [0, 0, 0, 1 ]}
+- {type: "box_1x1",   frame: "world", position: [  0.15, 0.2,  0], quaternion: [0, 0, 0, 1 ]}
+- {type: "box_1x1",   frame: "world", position: [  0.25, 0.2,  0], quaternion: [0, 0, 0, 1 ]}
+- {type: "box_1x1",   frame: "world", position: [  0.15, 0.75,  0], quaternion: [0, 0, 0, 1 ]}
+- {type: "box_1x1",   frame: "world", position: [  0.4, 0.85,  0], quaternion: [0, 0, 0, 1 ]}
+
+maze_medium:
+- {type: "box_short_ver",   frame: "world", position: [  0.7, 0.825,  0], quaternion: [0, 0, 0, 1 ]}
+- {type: "box_short_ver",   frame: "world", position: [  0.7, 0.25,  0], quaternion: [0, 0, 0, 1 ]}
+- {type: "box_short_hor",   frame: "world", position: [  0.85, 0.4,  0], quaternion: [0, 0, 0, 1 ]}
+- {type: "box_short_ver",   frame: "world", position: [  0.2, 0.125,  0], quaternion: [0, 0, 0, 1 ]}
+- {type: "box_short_ver",   frame: "world", position: [  0.2, 0.875,  0], quaternion: [0, 0, 0, 1 ]}
+- {type: "box_short_hor",   frame: "world", position: [  0.125, 0.5,  0], quaternion: [0, 0, 0, 1 ]}
+
+maze_easy:
+- {type: "box_1x1",   frame: "world", position: [  0.75, 0.75,  0], quaternion: [0, 0, 0, 1 ]}
+- {type: "box_1x1",   frame: "world", position: [  0.75, 0.25,  0], quaternion: [0, 0, 0, 1 ]}
+- {type: "box_1x1",   frame: "world", position: [  0.25, 0.25,  0], quaternion: [0, 0, 0, 1 ]}
+- {type: "box_1x1",   frame: "world", position: [  0.25, 0.75,  0], quaternion: [0, 0, 0, 1 ]}

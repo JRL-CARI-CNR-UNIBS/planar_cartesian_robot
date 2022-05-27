@@ -1,0 +1,31 @@
+object_geometries:
+
+  box_1x1:
+    color: [0.7,0.7,0.7,1]
+    box:  [0.1,0.1,0.1]
+    offset: [0.0,0.0,0.05] #
+
+  box_long_hor:
+    color: [0.7,0.7,0.7,1]
+    box:  [1,0.04,0.1]
+    offset: [0.5,0.0,0.05] #
+
+  box_long_ver:
+    color: [0.7,0.7,0.7,1]
+    box:  [0.04,1.0,0.1]
+    offset: [0.0,0.5,0.05] #
+
+  box_short_ver:
+    color: [0.7,0.7,0.7,1]
+    box:  [0.04,0.3,0.1]
+    offset: [0.0,0.0,0.05] #
+
+  box_short_hor:
+    color: [0.7,0.7,0.7,1]
+    box:  [0.3,0.04,0.1]
+    offset: [0.0,0.0,0.05] #
+
+  box_medium_ver:
+    color: [0.7,0.7,0.7,1]
+    box:  [0.04,0.7,0.1]
+    offset: [0.0,0.0,0.05] #
