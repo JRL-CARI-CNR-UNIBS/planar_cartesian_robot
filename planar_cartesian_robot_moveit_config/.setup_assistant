@@ -8,4 +8,4 @@ moveit_setup_assistant_config:
   CONFIG:
     author_name: Marco Faroni
     author_email: marco.faroni@stiima.cnr.it
-    generated_timestamp: 1651245671
+    generated_timestamp: 1654078435

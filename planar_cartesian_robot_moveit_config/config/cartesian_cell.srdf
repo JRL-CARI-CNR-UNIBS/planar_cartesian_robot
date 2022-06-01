@@ -9,32 +9,28 @@
     <!--JOINTS: When a joint is specified, the child link of that joint (which will always exist) is automatically included-->
     <!--CHAINS: When a chain is specified, all the links along the chain (including endpoints) are included in the group. Additionally, all the joints that are parents to included links are also included. This means that joints along the chain and the parent joint of the base link are included in the group-->
     <!--SUBGROUPS: Groups can also be formed by referencing to already defined group names-->
-    <group name="planar_robot">
-        <joint name="from_Y_to_fake"/>
-        <joint name="from_fake_to_X"/>
-    </group>
     <group name="planar_pose">
         <link name="end_effector"/>
     </group>
+    <group name="planar_robot">
+        <link name="world"/>
+        <link name="end_effector"/>
+        <link name="link_Y"/>
+        <link name="link_fake"/>
+        <link name="link_X"/>
+        <link name="link_Z"/>
+        <joint name="from_X_to_fake"/>
+        <joint name="from_fake_to_Y"/>
+    </group>
     <!--GROUP STATES: Purpose: Define a named state for a particular group, in terms of joint values. This is useful to define states like 'folded arms'-->
-    <group_state name="zero_pose" group="planar_robot">
-        <joint name="from_Y_to_fake" value="0"/>
-        <joint name="from_fake_to_X" value="0"/>
+    <group_state name="zero" group="planar_robot">
+        <joint name="from_X_to_fake" value="0"/>
+        <joint name="from_fake_to_Y" value="0"/>
     </group_state>
-    <group_state name="middle_pose" group="planar_robot">
-        <joint name="from_Y_to_fake" value="0.5"/>
-        <joint name="from_fake_to_X" value="0.5"/>
+    <group_state name="middle" group="planar_robot">
+        <joint name="from_X_to_fake" value="0.5"/>
+        <joint name="from_fake_to_Y" value="0.5"/>
     </group_state>
     <!--END EFFECTOR: Purpose: Represent information about an end effector.-->
-    <end_effector name="tip" parent_link="link_X" group="planar_pose" parent_group="planar_robot"/>
-    <!--DISABLE COLLISIONS: By default it is assumed that any link of the robot could potentially come into collision with any other link in the robot. This tag disables collision checking between a specified pair of links. -->
-    <disable_collisions link1="end_effector" link2="link_X" reason="Adjacent"/>
-    <disable_collisions link1="end_effector" link2="link_Z" reason="Never"/>
-    <disable_collisions link1="end_effector" link2="link_fake" reason="Default"/>
-    <disable_collisions link1="link_X" link2="link_Y" reason="Never"/>
-    <disable_collisions link1="link_X" link2="link_Z" reason="Never"/>
-    <disable_collisions link1="link_X" link2="link_fake" reason="Adjacent"/>
-    <disable_collisions link1="link_Y" link2="link_Z" reason="Adjacent"/>
-    <disable_collisions link1="link_Y" link2="link_fake" reason="Adjacent"/>
-    <disable_collisions link1="link_Z" link2="link_fake" reason="Never"/>
+    <end_effector name="tip" parent_link="end_effector" group="planar_pose" parent_group="planar_robot"/>
 </robot>

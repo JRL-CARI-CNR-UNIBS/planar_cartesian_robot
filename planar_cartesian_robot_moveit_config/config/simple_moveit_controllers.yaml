@@ -4,5 +4,5 @@ controller_list:
     type: FollowJointTrajectory
     default: True
     joints:
-      - from_Y_to_fake
-      - from_fake_to_X
+      - from_X_to_fake
+      - from_fake_to_Y

@@ -16,35 +16,11 @@
 
   <link name="link_Z"/>
 
-  <link name="link_Y"/>
-
-  <joint name="from_Z_to_Y" type="fixed">
-    <parent link="link_Z"/>
-    <child link="link_Y"/>
-    <axis xyz = "0 0 1" />
-    <origin rpy="0 0 0" xyz="0 0.5 -0.5"/>
-    <limit effort="1000.0" lower="0" upper="1" velocity="0.5"/>
-  </joint>
-
-  <link name="link_fake"/>
-
-  <joint name="from_Y_to_fake" type="prismatic">
-    <parent link="link_Y"/>
-    <child link="link_fake"/>
-    <axis xyz = "0 1 0" />
-    <origin rpy="0 0 0" xyz="0 -0.5 0"/>
-    <limit effort="1000.0" lower="0" upper="1" velocity="0.5"/>
-  </joint>
-
   <link name="link_X"/>
 
-  <joint name="from_fake_to_X" type="prismatic">
-    <parent link="link_fake"/>
-    <child link="link_X"/>
-    <axis xyz = "1 0 0" />
-    <origin rpy="0 0 0" xyz="-0.5 0 0"/>
-    <limit effort="1000.0" lower="0" upper="1" velocity="0.5"/>
-  </joint>
+  <link name="link_Y"/>
+
+  <link name="link_fake"/>
 
   <link name="end_effector">
     <visual>
@@ -62,10 +38,34 @@
     </collision>
   </link>
 
-  <joint name="from_X_to_end" type="fixed">
+  <joint name="from_Z_to_X" type="fixed">
+    <parent link="link_Z"/>
+    <child link="link_X"/>
+    <axis xyz = "0 0 1" />
+    <origin rpy="0 0 0" xyz="0.5 0 -0.5"/>
+    <limit effort="1000.0" lower="0" upper="1" velocity="0.5"/>
+  </joint>
+
+  <joint name="from_X_to_fake" type="prismatic">
     <parent link="link_X"/>
+    <child link="link_fake"/>
+    <axis xyz = "1 0 0" />
+    <origin rpy="0 0 0" xyz="-0.5 0 0"/>
+    <limit effort="1000.0" lower="0" upper="1" velocity="0.5"/>
+  </joint>
+
+  <joint name="from_fake_to_Y" type="prismatic">
+    <parent link="link_fake"/>
+    <child link="link_Y"/>
+    <axis xyz = "0 1 0" />
+    <origin rpy="0 0 0" xyz="0 -0.5 0"/>
+    <limit effort="1000.0" lower="0" upper="1" velocity="0.5"/>
+  </joint>
+
+  <joint name="from_Y_to_end" type="fixed">
+    <parent link="link_Y"/>
     <child link="end_effector"/>
-    <origin rpy="0 0 0" xyz="0.5 0 0"/>
+    <origin rpy="0 0 0" xyz="0 0.5 0"/>
   </joint>
 
 </robot>

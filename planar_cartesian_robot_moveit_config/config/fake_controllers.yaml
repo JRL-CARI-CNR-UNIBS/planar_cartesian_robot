@@ -2,12 +2,12 @@ controller_list:
   - name: fake_planar_robot_controller
     type: $(arg fake_execution_type)
     joints:
-      - from_Y_to_fake
-      - from_fake_to_X
+      - from_X_to_fake
+      - from_fake_to_Y
   - name: fake_planar_pose_controller
     type: $(arg fake_execution_type)
     joints:
       []
 initial:  # Define initial robot poses per group
   - group: planar_robot
-    pose: middle_pose
+    pose: middle

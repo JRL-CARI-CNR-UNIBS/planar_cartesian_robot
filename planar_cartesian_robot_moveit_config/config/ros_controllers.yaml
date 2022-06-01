@@ -1,15 +1,15 @@
 planar_robot_controller:
   type: effort_controllers/JointTrajectoryController
   joints:
-    - from_Y_to_fake
-    - from_fake_to_X
+    - from_X_to_fake
+    - from_fake_to_Y
   gains:
-    from_Y_to_fake:
+    from_X_to_fake:
       p: 100
       d: 1
       i: 1
       i_clamp: 1
-    from_fake_to_X:
+    from_fake_to_Y:
       p: 100
       d: 1
       i: 1
