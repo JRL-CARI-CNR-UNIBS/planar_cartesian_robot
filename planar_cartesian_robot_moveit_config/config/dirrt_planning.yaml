@@ -41,7 +41,7 @@ mg1:
   tube_radius: 0.02
   warp: false
   warp_once: true
-  collision_distance: 0.01
+  collision_distance: 0.001
 
 timebased:
   type: TimeBasedMultigoal
@@ -50,7 +50,7 @@ timebased:
   extend: false
   local_bias: 0.0
   tube_radius: 0.02
-  collision_distance: 0.01
+  collision_distance: 0.001
 
 informed_rrt:
   type: Multigoal
@@ -62,7 +62,7 @@ informed_rrt:
   forgetting_factor: 0
   tube_radius: 0.01
   utopia_tolerance: 0.0000001
-  collision_distance: 0.01
+  collision_distance: 0.001
   informed: true
   mixed_strategy: false
   warp: false
@@ -83,7 +83,7 @@ dirrt_paper:
   tube_radius: 0.02
   warp: false
   warp_once: false
-  collision_distance: 0.01
+  collision_distance: 0.0001
   mixed_strategy: true
 
 mab_egreedy_5:
