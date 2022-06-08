@@ -4,7 +4,6 @@ Panels:
     Name: Displays
     Property Tree Widget:
       Expanded:
-        - /MotionPlanning1
         - /MotionPlanning1/Scene Robot1
         - /MotionPlanning1/Planning Request1
         - /MotionPlanning1/Planned Path1
@@ -124,7 +123,7 @@ Visualization Manager:
         Interactive Marker Size: 0
         Joint Violation Color: 255; 0; 255
         Planning Group: planar_robot
-        Query Goal State: false
+        Query Goal State: true
         Query Start State: false
         Show Workspace: false
         Start State Alpha: 1
@@ -177,96 +176,10 @@ Visualization Manager:
       Value: true
       Velocity_Scaling_Factor: 0.1
     - Class: rviz/TF
-      Enabled: true
+      Enabled: false
       Frame Timeout: 15
       Frames:
         All Enabled: false
-        end_effector:
-          Value: false
-        link_X:
-          Value: false
-        link_Y:
-          Value: false
-        link_Z:
-          Value: false
-        link_fake:
-          Value: false
-        manipulation/box_1x1/n_0:
-          Value: false
-        manipulation/box_1x1/n_1:
-          Value: false
-        manipulation/box_1x1/n_10:
-          Value: false
-        manipulation/box_1x1/n_11:
-          Value: false
-        manipulation/box_1x1/n_12:
-          Value: false
-        manipulation/box_1x1/n_13:
-          Value: false
-        manipulation/box_1x1/n_14:
-          Value: false
-        manipulation/box_1x1/n_15:
-          Value: false
-        manipulation/box_1x1/n_16:
-          Value: false
-        manipulation/box_1x1/n_17:
-          Value: false
-        manipulation/box_1x1/n_18:
-          Value: false
-        manipulation/box_1x1/n_19:
-          Value: false
-        manipulation/box_1x1/n_2:
-          Value: false
-        manipulation/box_1x1/n_20:
-          Value: false
-        manipulation/box_1x1/n_21:
-          Value: false
-        manipulation/box_1x1/n_22:
-          Value: false
-        manipulation/box_1x1/n_23:
-          Value: false
-        manipulation/box_1x1/n_24:
-          Value: false
-        manipulation/box_1x1/n_25:
-          Value: false
-        manipulation/box_1x1/n_26:
-          Value: false
-        manipulation/box_1x1/n_27:
-          Value: false
-        manipulation/box_1x1/n_28:
-          Value: false
-        manipulation/box_1x1/n_29:
-          Value: false
-        manipulation/box_1x1/n_3:
-          Value: false
-        manipulation/box_1x1/n_30:
-          Value: false
-        manipulation/box_1x1/n_31:
-          Value: false
-        manipulation/box_1x1/n_32:
-          Value: false
-        manipulation/box_1x1/n_33:
-          Value: false
-        manipulation/box_1x1/n_34:
-          Value: false
-        manipulation/box_1x1/n_35:
-          Value: false
-        manipulation/box_1x1/n_36:
-          Value: false
-        manipulation/box_1x1/n_4:
-          Value: false
-        manipulation/box_1x1/n_5:
-          Value: false
-        manipulation/box_1x1/n_6:
-          Value: false
-        manipulation/box_1x1/n_7:
-          Value: false
-        manipulation/box_1x1/n_8:
-          Value: false
-        manipulation/box_1x1/n_9:
-          Value: false
-        world:
-          Value: true
       Marker Alpha: 1
       Marker Scale: 1
       Name: TF
@@ -274,88 +187,16 @@ Visualization Manager:
       Show Axes: true
       Show Names: true
       Tree:
-        world:
-          link_Z:
-            link_Y:
-              link_fake:
-                link_X:
-                  end_effector:
-                    {}
-          manipulation/box_1x1/n_0:
-            {}
-          manipulation/box_1x1/n_1:
-            {}
-          manipulation/box_1x1/n_10:
-            {}
-          manipulation/box_1x1/n_11:
-            {}
-          manipulation/box_1x1/n_12:
-            {}
-          manipulation/box_1x1/n_13:
-            {}
-          manipulation/box_1x1/n_14:
-            {}
-          manipulation/box_1x1/n_15:
-            {}
-          manipulation/box_1x1/n_16:
-            {}
-          manipulation/box_1x1/n_17:
-            {}
-          manipulation/box_1x1/n_18:
-            {}
-          manipulation/box_1x1/n_19:
-            {}
-          manipulation/box_1x1/n_2:
-            {}
-          manipulation/box_1x1/n_20:
-            {}
-          manipulation/box_1x1/n_21:
-            {}
-          manipulation/box_1x1/n_22:
-            {}
-          manipulation/box_1x1/n_23:
-            {}
-          manipulation/box_1x1/n_24:
-            {}
-          manipulation/box_1x1/n_25:
-            {}
-          manipulation/box_1x1/n_26:
-            {}
-          manipulation/box_1x1/n_27:
-            {}
-          manipulation/box_1x1/n_28:
-            {}
-          manipulation/box_1x1/n_29:
-            {}
-          manipulation/box_1x1/n_3:
-            {}
-          manipulation/box_1x1/n_30:
-            {}
-          manipulation/box_1x1/n_31:
-            {}
-          manipulation/box_1x1/n_32:
-            {}
-          manipulation/box_1x1/n_33:
-            {}
-          manipulation/box_1x1/n_34:
-            {}
-          manipulation/box_1x1/n_35:
-            {}
-          manipulation/box_1x1/n_36:
-            {}
-          manipulation/box_1x1/n_4:
-            {}
-          manipulation/box_1x1/n_5:
-            {}
-          manipulation/box_1x1/n_6:
-            {}
-          manipulation/box_1x1/n_7:
-            {}
-          manipulation/box_1x1/n_8:
-            {}
-          manipulation/box_1x1/n_9:
-            {}
+        {}
       Update Interval: 0
+      Value: false
+    - Class: rviz/Marker
+      Enabled: true
+      Marker Topic: /marker_visualization_topic
+      Name: Marker
+      Namespaces:
+        pathplan: true
+      Queue Size: 100
       Value: true
   Enabled: true
   Global Options:
@@ -389,9 +230,9 @@ Visualization Manager:
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Pitch: 1.5697963237762451
+      Pitch: 1.454796314239502
       Target Frame: world
-      Yaw: 4.704947471618652
+      Yaw: 4.6149444580078125
     Saved: ~
 Window Geometry:
   Displays:

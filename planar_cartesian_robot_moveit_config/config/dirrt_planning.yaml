@@ -67,6 +67,8 @@ informed_rrt:
   mixed_strategy: false
   warp: false
   warp_once: false
+  display_tree: true
+  display_tree_period: 0.1
 
 dirrt_paper:
   type: Multigoal
@@ -85,6 +87,8 @@ dirrt_paper:
   warp_once: false
   collision_distance: 0.0001
   mixed_strategy: true
+  display_tree: true
+  display_tree_period: 0.1
 
 mab_egreedy_5:
   type: Multigoal
