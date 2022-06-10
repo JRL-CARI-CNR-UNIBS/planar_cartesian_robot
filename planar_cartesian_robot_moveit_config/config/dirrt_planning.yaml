@@ -6,7 +6,6 @@ group_names_map:
   mab_egreedy_ws: planar_robot
   mab_uniform:  planar_robot
   mab_uniform_volume: planar_robot
-  mab_egreedy_5: planar_robot
   mab_egreedy_10: planar_robot
   mab_egreedy_20: planar_robot
   mab_ts: planar_robot
@@ -18,8 +17,6 @@ group_names_map:
   mab_egreedy_20_best: planar_robot
   mab_egreedy_20_bernoulli: planar_robot
   mab_egreedy_50_bernoulli: planar_robot
-  mab_egreedy_adaptive_1: planar_robot
-  mab_egreedy_adaptive_01: planar_robot
   mab_egreedy_adaptive_99: planar_robot
   mab_egreedy_adaptive_999: planar_robot
 
@@ -86,37 +83,17 @@ dirrt_paper:
   collision_distance: 0.0001
   mixed_strategy: true
 
-mab_egreedy_5:
-  type: Multigoal
-  max_distance: 1.0
-  inherit_from: informed_rrt
-  policy_type: MultiArmedBandit
-  policy_name: eGreedy
-  epsilon_coef: 0.05
-
 mab_egreedy_10:
   type: Multigoal
   max_distance: 1.0
-  inherit_from: mab_egreedy_5
+  inherit_from: informed_rrt
   epsilon_coef: 0.1
 
 mab_egreedy_20:
   type: Multigoal
   max_distance: 1.0
-  inherit_from: mab_egreedy_5
+  inherit_from: mab_egreedy_10
   epsilon_coef: 0.2
-
-mab_egreedy_adaptive_1:
-  type: Multigoal
-  max_distance: 1.0
-  inherit_from: mab_egreedy_10
-  egreedy_forgetting_factor: 0.01
-
-mab_egreedy_adaptive_01:
-  type: Multigoal
-  max_distance: 1.0
-  inherit_from: mab_egreedy_10
-  egreedy_forgetting_factor: 0.001
 
 mab_egreedy_adaptive_99:
   type: Multigoal
@@ -133,35 +110,35 @@ mab_egreedy_adaptive_999:
 mab_egreedy_10_best:
   type: Multigoal
   max_distance: 1.0
-  inherit_from: mab_egreedy_5
+  inherit_from: mab_egreedy_10
   epsilon_coef: 0.1
   reward_fcn: BestCost
 
 mab_egreedy_10_bernoulli:
   type: Multigoal
   max_distance: 1.0
-  inherit_from: mab_egreedy_5
+  inherit_from: mab_egreedy_10
   epsilon_coef: 0.1
   reward_fcn: Bernoulli
 
 mab_egreedy_20_best:
   type: Multigoal
   max_distance: 1.0
-  inherit_from: mab_egreedy_5
+  inherit_from: mab_egreedy_10
   epsilon_coef: 0.2
   reward_fcn: BestCost
 
 mab_egreedy_20_bernoulli:
   type: Multigoal
   max_distance: 1.0
-  inherit_from: mab_egreedy_5
+  inherit_from: mab_egreedy_10
   epsilon_coef: 0.2
   reward_fcn: Bernoulli
 
 mab_egreedy_50_bernoulli:
   type: Multigoal
   max_distance: 1.0
-  inherit_from: mab_egreedy_5
+  inherit_from: mab_egreedy_10
   epsilon_coef: 0.5
   reward_fcn: Bernoulli
 

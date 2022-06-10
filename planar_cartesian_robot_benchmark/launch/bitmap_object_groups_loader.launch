@@ -1,10 +1,14 @@
 <?xml version="1.0"?>
 <launch>
 
+  <rosparam command="load" file="$(find planar_cartesian_robot_benchmark)/config/objects_description.yaml"/>
   <rosparam command="load" file="$(find planar_cartesian_robot_benchmark)/config/objects_description_bitmap.yaml"/>
 
   <node pkg="object_loader" name="object_groups" type="object_groups_loader.py" output="screen">
-    <rosparam command="load" file="$(find planar_cartesian_robot_benchmark)/config/object_groups_bitmap.yaml"/>
+    <rosparam command="load" file="$(find planar_cartesian_robot_benchmark)/config/object_groups.yaml"/>
+    <rosparam command="load" file="$(find planar_cartesian_robot_benchmark)/config/object_groups_narrow_passage.yaml"/>
+    <rosparam command="load" file="$(find planar_cartesian_robot_benchmark)/config/object_groups_narrow_many_passages.yaml"/>
+    <rosparam command="load" file="$(find planar_cartesian_robot_benchmark)/config/object_groups_infeasible_passage.yaml"/>
   </node>
 
 </launch>

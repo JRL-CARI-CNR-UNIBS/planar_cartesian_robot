@@ -3,30 +3,30 @@ pipeline_ids:
 - dirrt
 planner_ids:
   dirrt:
-  - dirrt_paper
+  - mab_uniform_volume
+  #- dirrt_paper
   #- mab_egreedy_adaptive_1
   #- mab_egreedy_adaptive_01
   - mab_egreedy_adaptive_99
   - mab_egreedy_adaptive_999
-  - mab_uniform_volume
   - mab_uniform
-  - mab_egreedy_10
-  #- mab_ts
-  #- mab_ts_bernoulli
+  - mab_egreedy_20
+  - mab_ts
+  - mab_ts_bernoulli
   #- mab_egreedy_20_bernoulli
 
 planning_time: 5.0
 long_planning_time: 20.0 # first repetition planning time
 
-queries_number: 2
+queries_number: 4
 query_prefix: cubes
-scenarios: [maze_bitmap]
-repetitions: 20
+scenarios: [maze_infeasible_passage]
+repetitions: 30
 starting_query: 0
 
 # scenarios
-maze_bitmap:
-  object_groups: ["maze"]
+maze_many_passages:
+  object_groups: ["maze_many_passages"]
   query_0:
     goal_configurations:
     - - 0.2
@@ -67,7 +67,8 @@ maze_bitmap:
       - 0.5
     - - 0.8
       - 0.75
-    start_configuration: [0.35, 0.5]
+    # start_configuration: [0.35, 0.5]
+    start_configuration: [0.78, 0.93]
 
   query_1:
     goal_configurations:
@@ -107,7 +108,430 @@ maze_bitmap:
       - 0.75
     - - 0.8
       - 0.5
-    start_configuration: [0.55, 0.65]
+    # start_configuration: [0.55, 0.65]
+    start_configuration: [0.78, 0.93]
+
+  query_2:
+    goal_configurations:
+    - - 0.2
+      - 0.25
+    - - 0.2
+      - 0.5
+    - - 0.2
+      - 0.75
+    - - 0.22
+      - 0.5
+    - - 0.22
+      - 0.75
+    - - 0.18
+      - 0.25
+    - - 0.18
+      - 0.5
+    - - 0.21
+      - 0.25
+    - - 0.21
+      - 0.5
+    - - 0.21
+      - 0.75
+    - - 0.19
+      - 0.25
+    - - 0.19
+      - 0.5
+    - - 0.19
+      - 0.75
+    - - 0.17
+      - 0.25
+    - - 0.17
+      - 0.5
+    - - 0.17
+      - 0.75
+    - - 0.8
+      - 0.25
+    - - 0.8
+      - 0.5
+    - - 0.8
+      - 0.75
+    # start_configuration: [0.35, 0.5]
+    start_configuration: [0.35, 0.93]
+
+  query_3:
+    goal_configurations:
+    - - 0.2
+      - 0.25
+    - - 0.2
+      - 0.5
+    - - 0.2
+      - 0.75
+    - - 0.22
+      - 0.25
+    - - 0.22
+      - 0.5
+    - - 0.22
+      - 0.75
+    - - 0.18
+      - 0.25
+    - - 0.18
+      - 0.5
+    - - 0.21
+      - 0.25
+    - - 0.21
+      - 0.5
+    - - 0.21
+      - 0.75
+    - - 0.19
+      - 0.25
+    - - 0.19
+      - 0.5
+    - - 0.19
+      - 0.75
+    - - 0.17
+      - 0.25
+    - - 0.17
+      - 0.5
+    - - 0.17
+      - 0.75
+    - - 0.8
+      - 0.5
+    # start_configuration: [0.55, 0.65]
+    start_configuration: [0.35, 0.93]
+
+maze_narrow_passage:
+  object_groups: ["maze_narrow_passage"]
+  query_0:
+    goal_configurations:
+    - - 0.2
+      - 0.25
+    - - 0.2
+      - 0.5
+    - - 0.2
+      - 0.75
+    - - 0.22
+      - 0.5
+    - - 0.22
+      - 0.75
+    - - 0.18
+      - 0.25
+    - - 0.18
+      - 0.5
+    - - 0.21
+      - 0.25
+    - - 0.21
+      - 0.5
+    - - 0.21
+      - 0.75
+    - - 0.19
+      - 0.25
+    - - 0.19
+      - 0.5
+    - - 0.19
+      - 0.75
+    - - 0.17
+      - 0.25
+    - - 0.17
+      - 0.5
+    - - 0.17
+      - 0.75
+    - - 0.8
+      - 0.25
+    - - 0.8
+      - 0.5
+    - - 0.8
+      - 0.75
+    # start_configuration: [0.35, 0.5]
+    start_configuration: [0.78, 0.93]
+
+  query_1:
+    goal_configurations:
+    - - 0.2
+      - 0.25
+    - - 0.2
+      - 0.5
+    - - 0.2
+      - 0.75
+    - - 0.22
+      - 0.25
+    - - 0.22
+      - 0.5
+    - - 0.22
+      - 0.75
+    - - 0.18
+      - 0.25
+    - - 0.18
+      - 0.5
+    - - 0.21
+      - 0.25
+    - - 0.21
+      - 0.5
+    - - 0.21
+      - 0.75
+    - - 0.19
+      - 0.25
+    - - 0.19
+      - 0.5
+    - - 0.19
+      - 0.75
+    - - 0.17
+      - 0.25
+    - - 0.17
+      - 0.5
+    - - 0.17
+      - 0.75
+    - - 0.8
+      - 0.5
+    # start_configuration: [0.55, 0.65]
+    start_configuration: [0.78, 0.93]
+  query_2:
+    goal_configurations:
+    - - 0.2
+      - 0.25
+    - - 0.2
+      - 0.5
+    - - 0.2
+      - 0.75
+    - - 0.22
+      - 0.5
+    - - 0.22
+      - 0.75
+    - - 0.18
+      - 0.25
+    - - 0.18
+      - 0.5
+    - - 0.21
+      - 0.25
+    - - 0.21
+      - 0.5
+    - - 0.21
+      - 0.75
+    - - 0.19
+      - 0.25
+    - - 0.19
+      - 0.5
+    - - 0.19
+      - 0.75
+    - - 0.17
+      - 0.25
+    - - 0.17
+      - 0.5
+    - - 0.17
+      - 0.75
+    - - 0.8
+      - 0.25
+    - - 0.8
+      - 0.5
+    - - 0.8
+      - 0.75
+    # start_configuration: [0.35, 0.5]
+    start_configuration: [0.35, 0.93]
+
+  query_3:
+    goal_configurations:
+    - - 0.2
+      - 0.25
+    - - 0.2
+      - 0.5
+    - - 0.2
+      - 0.75
+    - - 0.22
+      - 0.25
+    - - 0.22
+      - 0.5
+    - - 0.22
+      - 0.75
+    - - 0.18
+      - 0.25
+    - - 0.18
+      - 0.5
+    - - 0.21
+      - 0.25
+    - - 0.21
+      - 0.5
+    - - 0.21
+      - 0.75
+    - - 0.19
+      - 0.25
+    - - 0.19
+      - 0.5
+    - - 0.19
+      - 0.75
+    - - 0.17
+      - 0.25
+    - - 0.17
+      - 0.5
+    - - 0.17
+      - 0.75
+    - - 0.8
+      - 0.5
+    # start_configuration: [0.55, 0.65]
+    start_configuration: [0.35, 0.93]
+
+maze_infeasible_passage:
+  object_groups: ["maze_infeasible_passage"]
+  query_0:
+    goal_configurations:
+    - - 0.2
+      - 0.25
+    - - 0.2
+      - 0.5
+    - - 0.2
+      - 0.75
+    - - 0.22
+      - 0.5
+    - - 0.22
+      - 0.75
+    - - 0.18
+      - 0.25
+    - - 0.18
+      - 0.5
+    - - 0.21
+      - 0.25
+    - - 0.21
+      - 0.5
+    - - 0.21
+      - 0.75
+    - - 0.19
+      - 0.25
+    - - 0.19
+      - 0.5
+    - - 0.19
+      - 0.75
+    - - 0.17
+      - 0.25
+    - - 0.17
+      - 0.5
+    - - 0.17
+      - 0.75
+    - - 0.8
+      - 0.25
+    - - 0.8
+      - 0.5
+    - - 0.8
+      - 0.75
+    # start_configuration: [0.35, 0.5]
+    start_configuration: [0.35, 0.93]
+
+  query_1:
+    goal_configurations:
+    - - 0.2
+      - 0.25
+    - - 0.2
+      - 0.5
+    - - 0.2
+      - 0.75
+    - - 0.22
+      - 0.25
+    - - 0.22
+      - 0.5
+    - - 0.22
+      - 0.75
+    - - 0.18
+      - 0.25
+    - - 0.18
+      - 0.5
+    - - 0.21
+      - 0.25
+    - - 0.21
+      - 0.5
+    - - 0.21
+      - 0.75
+    - - 0.19
+      - 0.25
+    - - 0.19
+      - 0.5
+    - - 0.19
+      - 0.75
+    - - 0.17
+      - 0.25
+    - - 0.17
+      - 0.5
+    - - 0.17
+      - 0.75
+    - - 0.8
+      - 0.5
+    # start_configuration: [0.55, 0.65]
+    start_configuration: [0.35, 0.07]
+  query_2:
+    goal_configurations:
+    - - 0.2
+      - 0.25
+    - - 0.2
+      - 0.5
+    - - 0.2
+      - 0.75
+    - - 0.22
+      - 0.5
+    - - 0.22
+      - 0.75
+    - - 0.18
+      - 0.25
+    - - 0.18
+      - 0.5
+    - - 0.21
+      - 0.25
+    - - 0.21
+      - 0.5
+    - - 0.21
+      - 0.75
+    - - 0.19
+      - 0.25
+    - - 0.19
+      - 0.5
+    - - 0.19
+      - 0.75
+    - - 0.17
+      - 0.25
+    - - 0.17
+      - 0.5
+    - - 0.17
+      - 0.75
+    - - 0.8
+      - 0.25
+    - - 0.8
+      - 0.5
+    - - 0.8
+      - 0.75
+    # start_configuration: [0.35, 0.5]
+    start_configuration: [0.35, 0.45]
+
+  query_3:
+    goal_configurations:
+    - - 0.2
+      - 0.25
+    - - 0.2
+      - 0.5
+    - - 0.2
+      - 0.75
+    - - 0.22
+      - 0.25
+    - - 0.22
+      - 0.5
+    - - 0.22
+      - 0.75
+    - - 0.18
+      - 0.25
+    - - 0.18
+      - 0.5
+    - - 0.21
+      - 0.25
+    - - 0.21
+      - 0.5
+    - - 0.21
+      - 0.75
+    - - 0.19
+      - 0.25
+    - - 0.19
+      - 0.5
+    - - 0.19
+      - 0.75
+    - - 0.17
+      - 0.25
+    - - 0.17
+      - 0.5
+    - - 0.17
+      - 0.75
+    - - 0.8
+      - 0.5
+    # start_configuration: [0.55, 0.65]
+    start_configuration: [0.35, 0.17]
 
 maze_complex:
   object_groups: ["perimeter","maze_complex"]
