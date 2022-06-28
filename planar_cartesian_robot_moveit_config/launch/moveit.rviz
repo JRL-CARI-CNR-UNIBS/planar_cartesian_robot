@@ -190,6 +190,14 @@ Visualization Manager:
         {}
       Update Interval: 0
       Value: false
+    - Class: rviz/Marker
+      Enabled: true
+      Marker Topic: /marker_visualization_topic
+      Name: Marker
+      Namespaces:
+        {}
+      Queue Size: 100
+      Value: true
   Enabled: true
   Global Options:
     Background Color: 48; 48; 48
@@ -222,9 +230,9 @@ Visualization Manager:
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Pitch: 1.454796314239502
+      Pitch: 1.5697963237762451
       Target Frame: world
-      Yaw: 4.6149444580078125
+      Yaw: 4.69994592666626
     Saved: ~
 Window Geometry:
   Displays:
@@ -243,4 +251,4 @@ Window Geometry:
     collapsed: false
   Width: 1440
   X: 314
-  Y: 115
+  Y: 78
