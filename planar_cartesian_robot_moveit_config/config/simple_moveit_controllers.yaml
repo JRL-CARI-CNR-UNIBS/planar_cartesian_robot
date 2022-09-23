@@ -1,5 +1,5 @@
 controller_list:
-  - name: planar_robot_controller
+  - name: planar_cartesian_robot_controller
     action_ns: follow_joint_trajectory
     type: FollowJointTrajectory
     default: True

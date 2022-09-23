@@ -1,0 +1,48 @@
+level1_hw:
+  remap_source_args:
+  - "/level1_hw/microinterpolator/follow_joint_trajectory/cancel"
+  - "/level1_hw/microinterpolator/follow_joint_trajectory/feedback"
+  - "/level1_hw/microinterpolator/follow_joint_trajectory/goal"
+  - "/level1_hw/microinterpolator/follow_joint_trajectory/result"
+  - "/level1_hw/microinterpolator/follow_joint_trajectory/status"
+  - "/level1_hw/microinterpolator/unscaled_joint_target"
+  - "/level1_hw/microinterpolator/speed_ovr"
+  - "/level1_hw/microinterpolator/safe_ovr_1"
+  - "/level1_hw/microinterpolator/safe_ovr_2"
+  - "/level1_hw/js_pub/joint_states"
+  remap_target_args:
+  - "/planar_cartesian_robot_controller/follow_joint_trajectory/cancel"
+  - "/planar_cartesian_robot_controller/follow_joint_trajectory/feedback"
+  - "/planar_cartesian_robot_controller/follow_joint_trajectory/goal"
+  - "/planar_cartesian_robot_controller/follow_joint_trajectory/result"
+  - "/planar_cartesian_robot_controller/follow_joint_trajectory/status"
+  - "/planar_cartesian_robot_controller/unscaled_joint_target"
+  - "/speed_ovr"
+  - "/safe_ovr_1"
+  - "/safe_ovr_2"
+  - "/joint_states"
+
+  js_pub:
+    type: cnr/control/JointStatePublisher
+    controlled_joint: all
+    base_link: world
+    tool_link: end_effector
+    robot_description_param: /robot_description
+    robot_description_planning_param: /robot_description_planning
+
+  microinterpolator:
+    # appenders      : [file, screen]
+    # levels         : [debug, debug]
+    # pattern_layout : "[%5p][%d{HH:mm:ss,SSS}][%50M:%04L][%24c] %m%n"
+    # file_name      : microinterpolator
+    type: "cnr/control/ScaledFJTPosVelEffController"
+    controlled_joints: all
+    continuity_order: 1
+    goal_tolerance: 0.0001 # optional (default=0.001). it you be a scalar or any array with a value for each joint
+    #path_tolerance: 0.001 # optional (default=0.001). it you be a scalar or any array with a value for each joint
+    check_tolerance: true # optional (default=true). if true, goal ends when the joint states and targets are in tolerance. Use false
+    pub_log_target: true
+
+  joint_teleop:
+    type: cnr/control/JointTeleopController
+    controlled_joints: all

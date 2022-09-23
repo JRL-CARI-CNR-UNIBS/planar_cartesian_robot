@@ -1,20 +1,8 @@
 level0_hw:
   remap_source_args:
-  - "/level0_hw/microinterpolator/follow_joint_trajectory/cancel"
-  - "/level0_hw/microinterpolator/follow_joint_trajectory/feedback"
-  - "/level0_hw/microinterpolator/follow_joint_trajectory/goal"
-  - "/level0_hw/microinterpolator/follow_joint_trajectory/result"
-  - "/level0_hw/microinterpolator/follow_joint_trajectory/status"
-  - "/level0_hw/microinterpolator/unscaled_joint_target"
   - "/level0_hw/js_pub/joint_states"
   remap_target_args:
-  - "/planar_robot_controller/follow_joint_trajectory/cancel"
-  - "/planar_robot_controller/follow_joint_trajectory/feedback"
-  - "/planar_robot_controller/follow_joint_trajectory/goal"
-  - "/planar_robot_controller/follow_joint_trajectory/result"
-  - "/planar_robot_controller/follow_joint_trajectory/status"
-  - "/unscaled_joint_target"
-  - "/planar_robot_controller/joint_states"
+  - "/planar_cartesian_robot_controller/joint_states"
 
   js_pub:
     type: cnr/control/JointStatePublisher
@@ -24,7 +12,18 @@ level0_hw:
     robot_description_param: /robot_description
     robot_description_planning_param: /robot_description_planning
 
-  microinterpolator:
-    type: "cnr/control/ScaledFJTPosController"
+  ctrl1:
+    type: "cnr/control/OpenLoopPosVelController"
+    setpoint_topic_name: "/planar_cartesian_robot_controller/joint_target"
     controlled_joints: all
-    continuity_order: 1
+    enable_setpoint_watchdog: false
+
+#  microinterpolator:
+#    type: "cnr/control/ScaledFJTPosVelEffController"
+#    controlled_joints: all
+#    continuity_order: 1
+#    continuity_order: 1
+#    goal_tolerance: 0.0001 # optional (default=0.001). it you be a scalar or any array with a value for each joint
+#    #path_tolerance: 0.001 # optional (default=0.001). it you be a scalar or any array with a value for each joint
+#    check_tolerance: true # optional (default=true). if true, goal ends when the joint states and targets are in tolerance. Use false
+#    pub_log_target: true

@@ -21,12 +21,12 @@
  <!-- the controller does not manage the hand, use a joint_state_publisher to handle it -->
 <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher">
   <param name="/use_gui" value="false"/>
-  <rosparam param="/source_list">[/manipulator/joint_states]</rosparam>
+  <rosparam param="/source_list">[/planar_cartesian_robot_controller/joint_states]</rosparam>
 </node>
 
   <!-- in planar_cartesian_robot_moveit_config package the joint_states is remapped to joint_states_desired -->
 <node name="joint_state_desired_publisher" pkg="topic_tools" type="relay" args="joint_states joint_states_desired" />
-<node pkg="tf2_ros" type="static_transform_publisher" name="virtual_joint_broadcaster_1" args="0 0 0 0 0 0 world a_mount_flange" />
+<node pkg="tf2_ros" type="static_transform_publisher" name="virtual_joint_broadcaster_1" args="0 0 0 0 0 0 world link_Z" />
 <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" respawn="true" output="screen" />
 
 <!-- load moveit -->
@@ -43,16 +43,21 @@
   <arg name="debug" value="$(arg debug)"/>
 </include>
 
+
 <!-- load mongo if needed -->
+<!--
 <include file="$(find planar_cartesian_robot_moveit_config)/launch/default_warehouse_db.launch" if="$(arg db)">
   <arg name="moveit_warehouse_database_path" value="$(arg db_path)"/>
 </include>
+-->
 
 <!-- Load CNR_ROS_CONTROL -->
 <!--Load robot hardware-->
 <rosparam command="load" file="$(find planar_cartesian_robot_configurations)/config/level0_hw.yaml" />
+<rosparam command="load" file="$(find planar_cartesian_robot_configurations)/config/level1_hw.yaml" />
 <!--Load controllers-->
 <rosparam command="load" file="$(find planar_cartesian_robot_configurations)/config/level0_controllers.yaml" />
+<rosparam command="load" file="$(find planar_cartesian_robot_configurations)/config/level1_controllers.yaml" />
 
 <node launch-prefix="$(arg launch_prefix)"
       pkg="cnr_configuration_manager"

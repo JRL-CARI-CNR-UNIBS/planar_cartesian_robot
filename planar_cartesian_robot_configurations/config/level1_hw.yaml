@@ -1,0 +1,27 @@
+level1_hw:
+  type           : "cnr/control/TopicsRobotHW"
+  appenders      : [file, screen]
+  levels         : [trace, info]
+  pattern_layout : "[%5p][%d{HH:mm:ss,SSS}][%50M:%04L][%24c] %m%n"
+  file_name      : "level1_hw"
+
+  resources: [ joint_resource ]
+  joint_resource:
+    joint_names:
+    - from_X_to_fake
+    - from_fake_to_Y
+    subscribed_topics :
+    - /planar_cartesian_robot_controller/joint_states
+    - /planar_cartesian_robot_controller/joint_states
+    published_topics :
+    - /planar_cartesian_robot_controller/joint_target
+
+  sampling_period: 0.008
+  diagnostic_period: 0.1
+  feedback_joint_state_timeout: 20
+  maximum_missing_cycles: 1000
+  base_link: world
+  tool_link: end_effector
+  robot_description_param: /robot_description
+  robot_description_planning_param: /robot_description_planning
+  kin_update_period: 0.008
