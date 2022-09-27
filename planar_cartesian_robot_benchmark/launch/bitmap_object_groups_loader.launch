@@ -9,6 +9,7 @@
     <rosparam command="load" file="$(find planar_cartesian_robot_benchmark)/config/object_groups_narrow_passage.yaml"/>
     <rosparam command="load" file="$(find planar_cartesian_robot_benchmark)/config/object_groups_narrow_many_passages.yaml"/>
     <rosparam command="load" file="$(find planar_cartesian_robot_benchmark)/config/object_groups_infeasible_passage.yaml"/>
+    <rosparam command="load" file="$(find planar_cartesian_robot_benchmark)/config/object_groups_infeasible_passage_but_one.yaml"/>
   </node>
 
 </launch>

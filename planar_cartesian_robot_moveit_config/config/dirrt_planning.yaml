@@ -3,11 +3,13 @@ group_names_map:
   dirrt_paper:  planar_robot
   informed_rrt: planar_robot
   timebased: planar_robot
+  #
   mab_egreedy_ws: planar_robot
   mab_uniform:  planar_robot
   mab_uniform_volume: planar_robot
   mab_egreedy_10: planar_robot
   mab_egreedy_20: planar_robot
+  mab_egreedy_50: planar_robot
   mab_ts: planar_robot
   mab_ts_bernoulli: planar_robot
   mab_ucb1: planar_robot
@@ -17,8 +19,12 @@ group_names_map:
   mab_egreedy_20_best: planar_robot
   mab_egreedy_20_bernoulli: planar_robot
   mab_egreedy_50_bernoulli: planar_robot
-  mab_egreedy_adaptive_01_01: planar_robot
-  mab_egreedy_adaptive_01: planar_robot
+  mab_egreedy_adaptive_reward: planar_robot
+  mab_egreedy_adaptive_eps: planar_robot
+  mab_egreedy_adaptive_reward_eps: planar_robot
+  mab_egreedy_eps_decreasing: planar_robot
+  mab_egreedy_eps_decreasing_bernoulli: planar_robot
+  mab_egreedy_adaptive_reward_eps_decreasing: planar_robot
 
   # timebased:                     manipulator
 
@@ -26,12 +32,12 @@ default_planner_config: informed_rrt
 
 mg1:
   type: Multigoal
-  max_distance: 2.0
+  max_distance: 0.2
   max_refine_time: 3.0     # time for refine solution
   utopia_tolerance: 0.003  # exit condition for early stop (cost< (1+utopia_tolerance) * distance)
   # max_refine_time: 3.0   # time for refine solution
   # utopia_tolerance: 0.05  # exit condition for early stop (cost< (1+utopia_tolerance) * distance)
-  rewire_radius: 4.0
+  rewire_radius: 0.4
   extend: true
   local_bias: 0.25
   forgetting_factor: 0.999
@@ -51,10 +57,10 @@ timebased:
 
 informed_rrt:
   type: Multigoal
-  max_distance: 2.0
+  max_distance: 0.2
   max_refine_time: 1500.0
   extend: true
-  rewire_radius: 4.0
+  rewire_radius: 0.4
   local_bias: 0.0
   forgetting_factor: 0
   tube_radius: 0.01
@@ -70,9 +76,9 @@ informed_rrt:
 
 dirrt_paper:
   type: Multigoal
-  max_distance: 2.0
+  max_distance: 0.2
   extend: true
-  rewire_radius: 4.0
+  rewire_radius: 0.4
   max_refine_time: 1500.0   # time for refine solution
   utopia_tolerance: 0.0000001  # exit condition for early stop (cost< (1+utopia_tolerance) * distance)
   # max_refine_time: 3.0   # time for refine solution
@@ -91,76 +97,102 @@ dirrt_paper:
 
 mab_egreedy_10:
   type: Multigoal
-  max_distance: 1.0
+  max_distance: 0.2
   inherit_from: informed_rrt
-  epsilon_coef: 0.9
+  epsilon_coef: 0.1
 
 mab_egreedy_20:
   type: Multigoal
-  max_distance: 1.0
   inherit_from: mab_egreedy_10
-  epsilon_coef: 0.8
+  epsilon_coef: 0.2
 
-mab_egreedy_adaptive_01_01:
+mab_egreedy_50:
   type: Multigoal
-  max_distance: 1.0
+  inherit_from: mab_egreedy_10
+  epsilon_coef: 0.5
+
+mab_egreedy_adaptive_reward:
+  type: Multigoal
+  inherit_from: mab_egreedy_10
+  egreedy_reward_forgetting_factor: 0.05
+  epsilon_coef: 0.5
+
+mab_egreedy_adaptive_eps:
+  type: Multigoal
   inherit_from: mab_egreedy_10
   egreedy_forgetting_factor: 0.01
-  egreedy_reward_forgetting_factor_: 0.01
+  epsilon_coef: 0.5
 
-mab_egreedy_adaptive_01:
+#  egreedy_reward_forgetting_factor: 0.5
+
+mab_egreedy_adaptive_reward_eps:
   type: Multigoal
-  max_distance: 1.0
   inherit_from: mab_egreedy_10
+  egreedy_reward_forgetting_factor: 0.05
   egreedy_forgetting_factor: 0.01
-#  egreedy_reward_forgetting_factor_: 0.5
+  epsilon_coef: 1.0
+
+mab_egreedy_eps_decreasing:
+  type: Multigoal
+  inherit_from: mab_egreedy_10
+  epsilon_exp: 0.999
+  epsilon_coef: 1.0
+
+mab_egreedy_eps_decreasing_bernoulli:
+  type: Multigoal
+  inherit_from: mab_egreedy_10
+  epsilon_exp: 0.999
+  reward_fcn: Bernoulli
+  reward_gain: 50
+  epsilon_coef: 1.0
+
+mab_egreedy_adaptive_reward_eps_decreasing:
+  type: Multigoal
+  inherit_from: mab_egreedy_10
+  egreedy_reward_forgetting_factor: 0.05
+  epsilon_exp: 0.995
+  epsilon_coef: 1.0
 
 mab_egreedy_10_best:
   type: Multigoal
-  max_distance: 1.0
   inherit_from: mab_egreedy_10
-  epsilon_coef: 0.9
+  epsilon_coef: 0.1
   reward_fcn: BestCost
 
 mab_egreedy_10_bernoulli:
   type: Multigoal
-  max_distance: 1.0
   inherit_from: mab_egreedy_10
   egreedy_forgetting_factor: 0.01
   reward_fcn: Bernoulli
-  egreedy_reward_forgetting_factor_: 0.01
+  egreedy_reward_forgetting_factor: 0.01
+  reward_gain: 50
 
 mab_egreedy_20_best:
   type: Multigoal
-  max_distance: 1.0
   inherit_from: mab_egreedy_10
-  epsilon_coef: 0.8
+  epsilon_coef: 0.2
   reward_fcn: BestCost
 
 mab_egreedy_20_bernoulli:
   type: Multigoal
-  max_distance: 1.0
   inherit_from: mab_egreedy_10
-  epsilon_coef: 0.8
+  epsilon_coef: 0.2
   reward_fcn: Bernoulli
 
 mab_egreedy_50_bernoulli:
   type: Multigoal
-  max_distance: 1.0
   inherit_from: mab_egreedy_10
   epsilon_coef: 0.5
   reward_fcn: Bernoulli
 
 dirrt_egreedy:
   type: Multigoal
-  max_distance: 1.0
   inherit_from: dirrt_paper
   policy_type: MultiArmedBandit
   policy_name: eGreedy
 
 mab_egreedy_ws:
   type: Multigoal
-  max_distance: 1.0
   inherit_from: informed_rrt
   policy_type: MultiArmedBandit
   policy_name: eGreedy
@@ -168,14 +200,12 @@ mab_egreedy_ws:
 
 mab_ucb1:
   type: Multigoal
-  max_distance: 1.0
   inherit_from: informed_rrt
   policy_type: MultiArmedBandit
   policy_name: UCB1
 
 mab_ucb1_bernoulli:
   type: Multigoal
-  max_distance: 1.0
   inherit_from: informed_rrt
   policy_type: MultiArmedBandit
   policy_name: UCB1
@@ -183,14 +213,12 @@ mab_ucb1_bernoulli:
 
 mab_ts:
   type: Multigoal
-  max_distance: 1.0
   inherit_from: informed_rrt
   policy_type: MultiArmedBandit
   policy_name: Thomson
 
 mab_ts_bernoulli:
   type: Multigoal
-  max_distance: 1.0
   inherit_from: informed_rrt
   policy_type: MultiArmedBandit
   policy_name: Thomson
@@ -198,14 +226,12 @@ mab_ts_bernoulli:
 
 mab_uniform:
   type: Multigoal
-  max_distance: 1.0
   inherit_from: informed_rrt
   policy_type: MultiArmedBandit
   policy_name: PolicyUniformOnGoals
 
 mab_uniform_volume:
   type: Multigoal
-  max_distance: 1.0
   inherit_from: informed_rrt
   policy_type: MultiArmedBandit
   policy_name: PolicyUniformOnVolume

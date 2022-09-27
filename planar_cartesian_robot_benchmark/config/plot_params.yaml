@@ -1,13 +1,15 @@
 planner_names_map:
   dirrt_paper               : dirrt_paper
-  mab_egreedy_adaptive_99   : mab_egreedy_adaptive_99
-  mab_egreedy_adaptive_999  : mab_egreedy_adaptive_999
-  mab_uniform_volume        : mab_uniform_volume
-  mab_uniform               : mab_uniform
-  mab_egreedy_20            : mab_egreedy_20
-  mab_ts                    : mab_ts
-  mab_ts_bernoulli          : mab_ts_bernoulli
+  # mab_egreedy_adaptive_99   : mab_egreedy_adaptive_99
+  # mab_egreedy_adaptive_999  : mab_egreedy_adaptive_999
+  # mab_uniform_volume        : mab_uniform_volume
+  # mab_uniform               : mab_uniform
+  # mab_egreedy_20            : mab_egreedy_20
+  # mab_ts                    : mab_ts
+  # mab_ts_bernoulli          : mab_ts_bernoulli
 
-boxplot_planning_times: [0.5, 1.0, 3.0]
-axis_xlim: 2.0
-axis_ylim: 2.0
+plot_only_map_names: false
+
+boxplot_planning_times: [0.5, 1.0, 2.0]
+axis_xlim: 2.0 # plots
+#axis_ylim: 2.0 # boxplots
