@@ -36,3 +36,6 @@ maze_easy:
 - {type: "box_1x1",   frame: "world", position: [  0.75, 0.25,  0], quaternion: [0, 0, 0, 1 ]}
 - {type: "box_1x1",   frame: "world", position: [  0.25, 0.25,  0], quaternion: [0, 0, 0, 1 ]}
 - {type: "box_1x1",   frame: "world", position: [  0.25, 0.75,  0], quaternion: [0, 0, 0, 1 ]}
+
+box_center_20x20:
+- {type: "box_2x2",   frame: "world", position: [  0.4, 0.6,  0], quaternion: [0, 0, 0, 1 ]}
