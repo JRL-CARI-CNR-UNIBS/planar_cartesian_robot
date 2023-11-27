@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+
+<launch>
+  <arg name="pipeline" default="dirrt" />
+  <arg name="use_rviz" default="true" />
+
+<!-- Launch loader of collision objets -->
+<node pkg="object_loader" name="context_manager_node" type="context_manager_node" respawn="true" output="screen"/>
+
+<!-- Launch MoveIt movegroup -->
+<include file="$(find planar_cartesian_robot_moveit_config)/launch/demo.launch">
+  <arg name="pipeline" value="$(arg pipeline)"/>
+</include>
+
+<!-- Load collision objects descriptions and scenarios -->
+
+<rosparam command="load" file="$(find planar_cartesian_robot_benchmark)/config/scenarios/objects/objects_description.yaml"/>
+<rosparam command="load" file="$(find planar_cartesian_robot_benchmark)/config/scenarios/objects/objects_description_bitmap.yaml"/>
+
+<node pkg="object_loader" name="object_groups" type="object_groups_loader.py" output="screen">
+  <rosparam command="load" file="$(find planar_cartesian_robot_benchmark)/config/scenarios/object_groups.yaml"/>
+  <rosparam command="load" file="$(find planar_cartesian_robot_benchmark)/config/scenarios/object_groups_narrow_passage.yaml"/>
+  <rosparam command="load" file="$(find planar_cartesian_robot_benchmark)/config/scenarios/object_groups_narrow_many_passages.yaml"/>
+  <rosparam command="load" file="$(find planar_cartesian_robot_benchmark)/config/scenarios/object_groups_infeasible_passage.yaml"/>
+  <rosparam command="load" file="$(find planar_cartesian_robot_benchmark)/config/scenarios/object_groups_infeasible_passage_but_one.yaml"/>
+</node>
+
+
+</launch>

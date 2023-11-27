@@ -1,3 +1,5 @@
+test_name: "prova"
+
 group_name: planar_robot
 pipeline_ids:
 - dirrt

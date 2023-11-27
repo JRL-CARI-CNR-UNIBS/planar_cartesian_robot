@@ -1,0 +1,26 @@
+test_name: "test_2d"
+
+group_name: planar_robot
+pipeline_ids:
+- dirrt
+planner_ids:
+  dirrt:
+  - informed_rrt
+  - dirrt_paper
+
+planning_time:  10.0
+long_planning_time:  100.0 # first repetition planning time
+
+queries_number: 1
+query_prefix: test_2d
+scenarios: [empty]
+repetitions: 10
+starting_query: 0
+
+# scenarios
+empty:
+  object_groups: []
+  query_0:
+    goal_configurations:
+    - [0.5, 0.5]
+    start_configuration: [0.1, 0.1]

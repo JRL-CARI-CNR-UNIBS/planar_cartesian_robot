@@ -1,3 +1,6 @@
+csv_name: /home/marco/.ros/default_res.csv
+figure_folder: /home/marco/.ros
+
 planner_names_map:
   dirrt_paper               : dirrt_paper
   # mab_egreedy_adaptive_99   : mab_egreedy_adaptive_99
