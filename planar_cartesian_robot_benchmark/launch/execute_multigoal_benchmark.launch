@@ -2,7 +2,7 @@
 
 <launch>
 
-<arg name="test_name" default="default" />
+<arg name="test_name" default="test" />
 
 <node pkg="benchmark_pipelines"  type="execute_multigoal_benchmark.py" name="multigoal_benchmark" output="screen">
    <rosparam command="load"  file="$(find planar_cartesian_robot_benchmark)/config/$(arg test_name).yaml"/>
