@@ -1,12 +1,14 @@
 group_names_map:
-  mg1:  planar_robot
-  dirrt_paper:  planar_robot
+  mixed_strategy_a: planar_robot
+  mixed_strategy_b: planar_robot
   informed_rrt: planar_robot
-  timebased: planar_robot
+  warp_strategy: planar_robot
+  # timebased: planar_robot
   #
-  mab_egreedy_ws: planar_robot
   mab_uniform:  planar_robot
   mab_uniform_volume: planar_robot
+  #
+  mab_egreedy_ws: planar_robot
   mab_egreedy_10: planar_robot
   mab_egreedy_20: planar_robot
   mab_egreedy_50: planar_robot
@@ -30,21 +32,67 @@ group_names_map:
 
 default_planner_config: informed_rrt
 
-mg1:
+mixed_strategy_a:
   type: Multigoal
-  max_distance: 0.2
-  max_refine_time: 3.0     # time for refine solution
-  utopia_tolerance: 0.003  # exit condition for early stop (cost< (1+utopia_tolerance) * distance)
-  # max_refine_time: 3.0   # time for refine solution
-  # utopia_tolerance: 0.05  # exit condition for early stop (cost< (1+utopia_tolerance) * distance)
-  rewire_radius: 0.4
+  max_distance: 0.5
+  max_refine_time: 1500.0
+  rewire_radius: 2.0
   extend: true
   local_bias: 0.25
   forgetting_factor: 0.999
   tube_radius: 0.02
-  warp: false
-  warp_once: true
-  collision_distance: 0.001
+  utopia_tolerance: 0.0000001
+
+mixed_strategy_b:
+  type: Multigoal
+  max_distance: 0.5
+  max_refine_time: 1500.0
+  rewire_radius: 0.5
+  extend: true
+  local_bias: 0.25
+  forgetting_factor: 0.999
+  tube_radius: 0.02
+  utopia_tolerance: 0.0000001
+
+warp_strategy:
+  type: Multigoal
+  max_distance: 0.5
+  max_refine_time: 1500.0
+  rewire_radius: 2.0
+  extend: true
+  local_bias: 0.25
+  forgetting_factor: 0.000001
+  tube_radius: 0.02
+  informed: false
+  warp: true
+  utopia_tolerance: 0.0000001
+
+informed_rrt:
+  type: Multigoal
+  max_distance: 0.5
+  max_refine_time: 1500.0
+  extend: true
+  local_bias: 0.0
+  forgetting_factor: 0
+  tube_radius: 0.01
+  utopia_tolerance: 0.0000001
+  #display_tree: true
+  #display_tree_period: 0.1
+  #display_flag: true
+  
+mab_uniform:
+  type: Multigoal
+  inherit_from: informed_rrt
+  policy_type: MultiArmedBandit
+  policy_name: PolicyUniformOnGoals
+
+mab_uniform_volume:
+  type: Multigoal
+  inherit_from: informed_rrt
+  policy_type: MultiArmedBandit
+  policy_name: PolicyUniformOnVolume
+  
+  
 
 timebased:
   type: TimeBasedMultigoal
@@ -54,46 +102,6 @@ timebased:
   local_bias: 0.0
   tube_radius: 0.02
   collision_distance: 0.001
-
-informed_rrt:
-  type: Multigoal
-  max_distance: 0.2
-  max_refine_time: 1500.0
-  extend: true
-  rewire_radius: 0.4
-  local_bias: 0.0
-  forgetting_factor: 0
-  tube_radius: 0.01
-  utopia_tolerance: 0.0000001
-  collision_distance: 0.001
-  informed: true
-  mixed_strategy: false
-  warp: false
-  warp_once: false
-  display_tree: true
-  display_tree_period: 0.1
-  display_flag: true
-
-dirrt_paper:
-  type: Multigoal
-  max_distance: 0.2
-  extend: true
-  rewire_radius: 0.4
-  max_refine_time: 1500.0   # time for refine solution
-  utopia_tolerance: 0.0000001  # exit condition for early stop (cost< (1+utopia_tolerance) * distance)
-  # max_refine_time: 3.0   # time for refine solution
-  # utopia_tolerance: 0.05  # exit condition for early stop (cost< (1+utopia_tolerance) * distance)
-  #rewire_radius: 4.0
-  local_bias: 0.5
-  forgetting_factor: 0.999
-  tube_radius: 0.02
-  warp: false
-  warp_once: false
-  collision_distance: 0.0001
-  mixed_strategy: true
-  display_tree: true
-  display_tree_period: 0.1
-  display_flag: true
 
 mab_egreedy_10:
   type: Multigoal
@@ -224,14 +232,4 @@ mab_ts_bernoulli:
   policy_name: Thomson
   reward_fcn: Bernoulli
 
-mab_uniform:
-  type: Multigoal
-  inherit_from: informed_rrt
-  policy_type: MultiArmedBandit
-  policy_name: PolicyUniformOnGoals
 
-mab_uniform_volume:
-  type: Multigoal
-  inherit_from: informed_rrt
-  policy_type: MultiArmedBandit
-  policy_name: PolicyUniformOnVolume

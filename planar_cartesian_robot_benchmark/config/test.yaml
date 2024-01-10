@@ -1,12 +1,14 @@
-test_name: "test_2d"
-
 group_name: planar_robot
 pipeline_ids:
 - dirrt
 planner_ids:
   dirrt:
+  - mixed_strategy_a
+  - mixed_strategy_b
   - informed_rrt
-  - dirrt_paper
+  - warp_strategy
+  - mab_uniform
+  - mab_uniform_volume
 
 planning_time:  10.0
 long_planning_time:  100.0 # first repetition planning time
@@ -14,7 +16,7 @@ long_planning_time:  100.0 # first repetition planning time
 queries_number: 1
 query_prefix: test_2d
 scenarios: [empty]
-repetitions: 10
+repetitions: 30
 starting_query: 0
 
 # scenarios
@@ -22,5 +24,5 @@ empty:
   object_groups: []
   query_0:
     goal_configurations:
-    - [0.5, 0.5]
+    - [0.9, 0.9]
     start_configuration: [0.1, 0.1]
