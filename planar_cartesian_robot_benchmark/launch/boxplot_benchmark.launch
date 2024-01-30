@@ -2,15 +2,8 @@
 
 <launch>
 
-  <!-- <arg name="csv_name"  default="$(find planar_robot_benchmark_res)/config/res.csv"/> -->
-
-  <arg name="test_name" default="planar_cartesian_robot_benchmark_res.csv" />
-  <arg name="figure_folder" default="/home/$(env USER)/.ros" />
-
   <node pkg="benchmark_pipelines"  type="result_boxplot.py" name="result_boxplot" output="screen">
-    <param name="csv_name"  value="$(arg test_name)"/>
-    <param name="figure_folder"  value="$(arg figure_folder)"/>
-    <rosparam command="load"  file="$(find planar_cartesian_robot_benchmark)/config/plot_params.yaml"/>
+    <rosparam command="load"  file="$(find planar_cartesian_robot_benchmark)/config/plot.yaml"/>
   </node>
 
 </launch>

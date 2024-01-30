@@ -1,7 +1,7 @@
 perimeter:
-- {type: "box_long_hor",   frame: "world", position: [  0, 0,  0], quaternion: [0, 0, 0, 1 ]}
+- {type: "box_long_hor",   frame: "world", position: [  0, -0.04,  0], quaternion: [0, 0, 0, 1 ]}
 - {type: "box_long_hor",   frame: "world", position: [  0, 1,  0], quaternion: [0, 0, 0, 1 ]}
-- {type: "box_long_ver",   frame: "world", position: [  0, 0,  0], quaternion: [0, 0, 0, 1 ]}
+- {type: "box_long_ver",   frame: "world", position: [  -0.04, 0,  0], quaternion: [0, 0, 0, 1 ]}
 - {type: "box_long_ver",   frame: "world", position: [  1, 0,  0], quaternion: [0, 0, 0, 1 ]}
 
 

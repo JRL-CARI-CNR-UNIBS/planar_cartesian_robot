@@ -1,26 +1,4 @@
 maze_many_passages:
-#- frame: world
-#  position:
-#  - 0.27
-#  - 0.6
-#  - 0.0
-#  quaternion:
-#  - 0
-#  - 0
-#  - 0
-#  - 1
-#  type: box_50x1000mm
-# - frame: world
-#   position:
-#   - 0.72
-#   - 0.5
-#   - 0.0
-#   quaternion:
-#   - 0
-#   - 0
-#   - 0
-#   - 1
-#   type: box_50x1000mm
 - frame: world
   position:
   - 0.025
