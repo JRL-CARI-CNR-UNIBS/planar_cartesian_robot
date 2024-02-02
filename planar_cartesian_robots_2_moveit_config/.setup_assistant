@@ -1,0 +1,11 @@
+moveit_setup_assistant_config:
+  URDF:
+    package: planar_cartesian_robot_description
+    relative_path: urdf/point2robots.urdf.xacro
+    xacro_args: ""
+  SRDF:
+    relative_path: config/point2robots.srdf
+  CONFIG:
+    author_name: marco.faroni
+    author_email: marco.faroni@polimi.it
+    generated_timestamp: 1706877904

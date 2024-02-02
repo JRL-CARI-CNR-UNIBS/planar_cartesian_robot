@@ -1,0 +1,42 @@
+controller_list:
+  - name: r_robot_controller
+    action_ns: follow_joint_trajectory
+    type: FollowJointTrajectory
+    default: True
+    joints:
+      - r_from_X_to_fake
+      - r_from_fake_to_Y
+  - name: g_robot_controller
+    action_ns: follow_joint_trajectory
+    type: FollowJointTrajectory
+    default: True
+    joints:
+      - g_from_X_to_fake
+      - g_from_fake_to_Y
+  - name: b_robot_controller
+    action_ns: follow_joint_trajectory
+    type: FollowJointTrajectory
+    default: True
+    joints:
+      - b_from_X_to_fake
+      - b_from_fake_to_Y
+  - name: k_robot_controller
+    action_ns: follow_joint_trajectory
+    type: FollowJointTrajectory
+    default: True
+    joints:
+      - k_from_X_to_fake
+      - k_from_fake_to_Y
+  - name: planar4robots_controller
+    action_ns: follow_joint_trajectory
+    type: FollowJointTrajectory
+    default: True
+    joints:
+      - b_from_X_to_fake
+      - b_from_fake_to_Y
+      - g_from_X_to_fake
+      - g_from_fake_to_Y
+      - k_from_X_to_fake
+      - k_from_fake_to_Y
+      - r_from_X_to_fake
+      - r_from_fake_to_Y

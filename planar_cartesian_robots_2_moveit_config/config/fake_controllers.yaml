@@ -1,0 +1,25 @@
+controller_list:
+  - name: fake_robot_a_controller
+    type: $(arg fake_execution_type)
+    joints:
+      - a_from_X_to_fake
+      - a_from_fake_to_Y
+  - name: fake_robot_b_controller
+    type: $(arg fake_execution_type)
+    joints:
+      - b_from_X_to_fake
+      - b_from_fake_to_Y
+  - name: fake_planar2robots_controller
+    type: $(arg fake_execution_type)
+    joints:
+      - a_from_X_to_fake
+      - a_from_fake_to_Y
+      - b_from_X_to_fake
+      - b_from_fake_to_Y
+initial:  # Define initial robot poses per group
+  - group: robot_a
+    pose: a_zero
+  - group: robot_b
+    pose: b_zero
+  - group: planar2robots
+    pose: planar2robots_rest

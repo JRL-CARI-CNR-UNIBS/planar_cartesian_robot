@@ -1,0 +1,24 @@
+controller_list:
+  - name: robot_a_controller
+    action_ns: follow_joint_trajectory
+    type: FollowJointTrajectory
+    default: True
+    joints:
+      - a_from_X_to_fake
+      - a_from_fake_to_Y
+  - name: robot_b_controller
+    action_ns: follow_joint_trajectory
+    type: FollowJointTrajectory
+    default: True
+    joints:
+      - b_from_X_to_fake
+      - b_from_fake_to_Y
+  - name: planar2robots_controller
+    action_ns: follow_joint_trajectory
+    type: FollowJointTrajectory
+    default: True
+    joints:
+      - a_from_X_to_fake
+      - a_from_fake_to_Y
+      - b_from_X_to_fake
+      - b_from_fake_to_Y

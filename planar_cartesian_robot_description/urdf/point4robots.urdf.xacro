@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<!--URDF MODEL 2 point robots-->
+<robot xmlns:xacro="http://ros.org/wiki/xacro" name="point2robots" >
+
+
+<material name="black">
+  <color rgba="1 1 1 0.9"/>
+</material> 
+<material name="red">
+  <color rgba="1 0 0 0.9"/>
+</material>
+<material name="green">
+  <color rgba="0 1 0 0.9"/>
+</material>
+<material name="blue">
+  <color rgba="0 0 1 0.9"/>
+</material> 
+
+
+<xacro:property name="radius" value="0.015" />
+<xacro:property name="origin_frame" value="world" />
+
+<xacro:include filename="$(find planar_cartesian_robot_description)/urdf/point_robot.xacro" />
+<link name="${origin_frame}" />
+
+<xacro:point_robot prefix="r_" joint_limited="true" origin_frame="${origin_frame}" sphere_radius="${radius}" color="red"/>
+<xacro:point_robot prefix="g_" joint_limited="true" origin_frame="${origin_frame}" sphere_radius="${radius}" color="green"/>
+<xacro:point_robot prefix="b_" joint_limited="true" origin_frame="${origin_frame}" sphere_radius="${radius}" color="blue"/>
+<xacro:point_robot prefix="k_" joint_limited="true" origin_frame="${origin_frame}" sphere_radius="${radius}" color="black"/>
+
+</robot>
