@@ -3,12 +3,20 @@
 <launch>
   <arg name="pipeline" default="dirrt" />
   <arg name="use_rviz" default="true" />
+  <arg name="robots" default="1" />
 
 <!-- Launch loader of collision objets -->
 <node pkg="object_loader" name="context_manager_node" type="context_manager_node" respawn="true" output="screen"/>
 
 <!-- Launch MoveIt movegroup -->
-<include file="$(find planar_cartesian_robot_moveit_config)/launch/demo.launch">
+<!-- Select cell based on number of robots -->
+<include if="$(eval arg('robots') == 1)" file="$(find planar_cartesian_robot_moveit_config)/launch/demo.launch">
+  <arg name="pipeline" value="$(arg pipeline)"/>
+</include>
+<include if="$(eval arg('robots') == 2)" file="$(find planar_cartesian_robots_2_moveit_config)/launch/demo.launch">
+  <arg name="pipeline" value="$(arg pipeline)"/>
+</include>
+<include if="$(eval arg('robots') == 4)" file="$(find planar_cartesian_robots_4_moveit_config)/launch/demo.launch">
   <arg name="pipeline" value="$(arg pipeline)"/>
 </include>
 

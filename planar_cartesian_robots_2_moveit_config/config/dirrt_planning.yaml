@@ -1,7 +1,13 @@
 group_names_map:
   mixed_strategy_a: planar2robots
   informed_rrt: planar2robots
-
+  mab_ts_bernoulli: planar2robots
+  mab_uniform: planar2robots
+  mab_uniform_volume: planar2robots
+  mab_egreedy_eps_decreasing_bernoulli: planar2robots
+  mab_egreedy_best_cost: planar2robots
+  mab_ts_best_cost: planar2robots
+  
 default_planner_config: informed_rrt
 
 mixed_strategy_a:
@@ -9,7 +15,7 @@ mixed_strategy_a:
   max_distance: 0.5
   max_refine_time: 1500.0
   rewire_radius: 0.05
-  extend: true
+  extend: false
   local_bias: 0.25
   forgetting_factor: 0.999
   tube_radius: 0.02
@@ -27,4 +33,49 @@ informed_rrt:
   tube_radius: 0.01
   utopia_tolerance: 0.0000001
   collision_distance: 0.001
+
+mab_uniform:
+  type: Multigoal
+  inherit_from: informed_rrt
+  policy_type: MultiArmedBandit
+  policy_name: PolicyUniformOnGoals
+
+mab_uniform_volume:
+  type: Multigoal
+  inherit_from: informed_rrt
+  policy_type: MultiArmedBandit
+  policy_name: PolicyUniformOnVolume
   
+mab_ts_bernoulli:
+  type: Multigoal
+  inherit_from: informed_rrt
+  policy_type: MultiArmedBandit
+  policy_name: Thomson
+  reward_fcn: Bernoulli
+
+mab_egreedy_eps_decreasing_bernoulli:
+  type: Multigoal
+  inherit_from: informed_rrt
+  policy_type: MultiArmedBandit
+  policy_name: eGreedy
+  reward_fcn: Bernoulli
+  epsilon_coef: 1.0
+  epsilon_exp: 0.9998
+
+mab_ts_best_cost:
+  type: Multigoal
+  inherit_from: informed_rrt
+  policy_type: MultiArmedBandit
+  policy_name: BestSoFar
+  reward_fcn: BestSoFar
+  beta_gain: 0.01
+
+mab_egreedy_best_cost:
+  type: Multigoal
+  inherit_from: informed_rrt
+  policy_type: MultiArmedBandit
+  policy_name: eGreedy
+  reward_fcn: BestSoFar
+  epsilon_coef: 1.0
+  epsilon_exp: 0.9998
+  egreedy_reward_forgetting_factor: 1.0 # keep only last reward

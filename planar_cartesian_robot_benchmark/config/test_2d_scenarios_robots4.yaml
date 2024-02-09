@@ -1,0 +1,55 @@
+group_name: planar4robots
+pipeline_ids:
+- dirrt
+planner_ids:
+  dirrt:
+  - mixed_strategy_a
+  - informed_rrt
+  - mab_ts_bernoulli
+  - mab_uniform
+  - mab_uniform_volume
+  - mab_egreedy_eps_decreasing_bernoulli
+  
+
+planning_time: 4.0
+long_planning_time:  10.0 # first repetition planning time
+
+queries_number: 1
+query_prefix: test_2d
+#scenarios: [maze_many_passages, maze_narrow_passage, maze_infeasible_passage, maze_infeasible_passage_but_one, maze_complex, maze_medium, maze_easy]
+scenarios: [maze_easy] 
+repetitions: 20
+starting_query: 0
+sampling_time: 0.5
+
+# scenarios
+    
+maze_medium:
+  object_groups: ["maze_medium","perimeter"]
+  query_0:
+    goal_configurations:
+    - [0.1, 0.9, 0.1, 0.1, 0.9, 0.9, 0.9, 0.1]
+    - [0.1, 0.9, 0.9, 0.1, 0.9, 0.9, 0.1, 0.1]
+    - [0.1, 0.9, 0.9, 0.9, 0.1, 0.1, 0.9, 0.1]
+    - [0.9, 0.1, 0.1, 0.1, 0.9, 0.9, 0.1, 0.9]
+    - [0.9, 0.1, 0.9, 0.9, 0.1, 0.1, 0.1, 0.9]
+    - [0.9, 0.1, 0.9, 0.9, 0.1, 0.9, 0.1, 0.1]
+    - [0.9, 0.9, 0.1, 0.1, 0.1, 0.9, 0.9, 0.1]
+    - [0.9, 0.9, 0.9, 0.1, 0.1, 0.1, 0.1, 0.9]
+    - [0.9, 0.9, 0.9, 0.1, 0.1, 0.9, 0.1, 0.1]
+    start_configuration: [0.1,0.1,0.1,0.9,0.9,0.1,0.9,0.9]
+
+maze_easy:
+  object_groups: ["maze_easy","perimeter"]
+  query_0:
+    goal_configurations:
+    - [0.1, 0.9, 0.1, 0.1, 0.9, 0.9, 0.9, 0.1]
+    - [0.1, 0.9, 0.9, 0.1, 0.9, 0.9, 0.1, 0.1]
+    - [0.1, 0.9, 0.9, 0.9, 0.1, 0.1, 0.9, 0.1]
+    - [0.9, 0.1, 0.1, 0.1, 0.9, 0.9, 0.1, 0.9]
+    - [0.9, 0.1, 0.9, 0.9, 0.1, 0.1, 0.1, 0.9]
+    - [0.9, 0.1, 0.9, 0.9, 0.1, 0.9, 0.1, 0.1]
+    - [0.9, 0.9, 0.1, 0.1, 0.1, 0.9, 0.9, 0.1]
+    - [0.9, 0.9, 0.9, 0.1, 0.1, 0.1, 0.1, 0.9]
+    - [0.9, 0.9, 0.9, 0.1, 0.1, 0.9, 0.1, 0.1]
+    start_configuration: [0.1,0.1,0.1,0.9,0.9,0.1,0.9,0.9]

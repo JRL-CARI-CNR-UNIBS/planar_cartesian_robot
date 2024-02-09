@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+
+<launch>
+<arg name="pipeline" default="dirrt" />
+<arg name="use_rviz" default="true" />
+
+<include file="$(find planar_cartesian_robot_benchmark)/launch/robot.launch">
+  <arg name="pipeline" value="$(arg pipeline)"/>
+  <arg name="use_rviz" value="$(arg use_rviz)"/>
+  <arg name="robots" value="4"/>
+</include>
+</launch>

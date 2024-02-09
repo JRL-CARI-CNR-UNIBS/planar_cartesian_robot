@@ -1,23 +1,23 @@
 #csv_name: /home/marco/.ros/test_mab_2d/test/test_res.csv
-#csv_name: /home/marco/.ros/test_mab_2d/maze_many_passages/test_2d_scenarios_maze_many_passages.csv
-#csv_name: /home/marco/.ros/test_mab_2d/maze_narrow_passage/test_2d_scenarios_maze_narrow_passage.csv
-#csv_name: /home/marco/.ros/test_mab_2d/maze_infeasible_passage/test_2d_scenarios_maze_infeasible_passage.csv
-#csv_name: /home/marco/.ros/test_mab_2d/maze_infeasible_passage_but_one/test_2d_scenarios_maze_infeasible_passage_but_one.csv
-#csv_name: /home/marco/.ros/test_mab_2d/maze_complex/test_2d_scenarios_res_complex.csv
-#csv_name: /home/marco/.ros/test_mab_2d/maze_medium/test_2d_scenarios_medium.csv
-#csv_name: /home/marco/.ros/test_mab_2d/maze_easy/test_2d_scenarios_easy.csv
-csv_name: /home/marco/.ros/test_mab_2d/test_2d_scenarios_appended_all.csv
+#csv_name: /home/marco/.ros/test_mab_2d/test_2d_scenarios_appended_all.csv
+#csv_name: /home/marco/.ros/test_2d_scenarios_res_q1_all.csv
+#csv_name: /home/marco/.ros/test_2d_scenarios_robots2_res_complex.csv
+csv_name: /home/marco/.ros/test_2d_scenarios_robots2_res.csv
 
 figure_folder: /home/marco/.ros
 
 planner_names_map:
-  mixed_strategy_a: mixed_strategy_a
-  mixed_strategy_b: mixed_strategy_b
+  mixed_strategy_a: mab_ts_best_path
   informed_rrt: informed_rrt
-  warp_strategy: warp_strategy
+  mab_ts_bernoulli: mab_ts_bernoulli
+  mab_uniform: mab_uniform_over_goals
+  mab_egreedy_best_cost: mab_egreedy_best_path
 
-plot_only_map_names: false
+plot_only_map_names: true
 
-boxplot_planning_times: [0.1, 0.2,  0.3]
+#boxplot_planning_times: [0.05, 0.01, 0.15, 0.2,  0.3]
+boxplot_planning_times: [0.5, 1.0, 1.5, 2.0]
+
 axis_xlim: 2.0 # plots
 #axis_ylim: 2.0 # boxplots
+

@@ -10,26 +10,22 @@ planner_ids:
   #- mab_uniform
   #- mab_uniform_volume
   #- mab_ts_bernoulli
-  ##- mab_ucb1_bernoulli
-  #- mab_egreedy_eps_decreasing_bernoulli
-  #- mab_egreedy_adaptive_reward_eps_decreasing_b1
-  #- mab_egreedy_adaptive_reward_eps_decreasing_b2
-  #- mab_egreedy_adaptive_reward_eps_decreasing_b3
-  #- mab_egreedy_adaptive_reward_eps_decreasing_b4
-  - mab_ts_bernoulli_sw_1
-  - mab_ts_bernoulli_sw_2
+  #- mab_ucb1_bernoulli
+  - mab_egreedy_eps_decreasing_bernoulli
+  #- mab_ts_bernoulli_sw_1
+  #- mab_ts_bernoulli_sw_2
   #- mab_ts_bernoulli_gain_1
   #- mab_ts_bernoulli_gain_2
 
-planning_time:  0.3
+planning_time: 0.3
 long_planning_time:  2.0 # first repetition planning time
 
-queries_number: 1
+queries_number: 2
 query_prefix: test_2d
 #scenarios: [maze_many_passages, maze_narrow_passage, maze_infeasible_passage, maze_infeasible_passage_but_one, maze_complex, maze_medium, maze_easy]
-scenarios: [maze_easy] 
+scenarios: [maze_many_passages] 
 repetitions: 20
-starting_query: 0
+starting_query: 1
 sampling_time: 0.1
 
 # scenarios
@@ -48,87 +44,31 @@ maze_many_passages:
   object_groups: ["maze_many_passages"]
   query_0:
     goal_configurations:
-    - - 0.2
-      - 0.25
-    - - 0.2
-      - 0.5
-    - - 0.2
-      - 0.75
-    - - 0.22
-      - 0.5
-    - - 0.22
-      - 0.75
-    - - 0.18
-      - 0.25
-    - - 0.18
-      - 0.5
-    - - 0.21
-      - 0.25
-    - - 0.21
-      - 0.5
-    - - 0.21
-      - 0.75
-    - - 0.19
-      - 0.25
-    - - 0.19
-      - 0.5
-    - - 0.19
-      - 0.75
-    - - 0.17
-      - 0.25
-    - - 0.17
-      - 0.5
-    - - 0.17
-      - 0.75
-    - - 0.8
-      - 0.25
-    - - 0.8
-      - 0.5
-    - - 0.8
-      - 0.75
-    # start_configuration: [0.35, 0.5]
-    start_configuration: [0.78, 0.93]
+    - - 0.1
+      - 0.1
+    - - 0.1
+      - 0.9
+    - - 0.9
+      - 0.1
+    - - 0.9
+      - 0.9
+    start_configuration: [0.5, 0.5]
 
   query_1:
     goal_configurations:
-    - - 0.2
-      - 0.25
-    - - 0.2
+    - - 0.1
+      - 0.1
+    - - 0.1
+      - 0.9
+    - - 0.9
+      - 0.1
+    - - 0.9
+      - 0.9
+    - - 0.15
       - 0.5
-    - - 0.2
-      - 0.75
-    - - 0.22
-      - 0.25
-    - - 0.22
-      - 0.5
-    - - 0.22
-      - 0.75
-    - - 0.18
-      - 0.25
-    - - 0.18
-      - 0.5
-    - - 0.21
-      - 0.25
-    - - 0.21
-      - 0.5
-    - - 0.21
-      - 0.75
-    - - 0.19
-      - 0.25
-    - - 0.19
-      - 0.5
-    - - 0.19
-      - 0.75
-    - - 0.17
-      - 0.25
-    - - 0.17
-      - 0.5
-    - - 0.17
-      - 0.75
-    - - 0.8
-      - 0.5
-    # start_configuration: [0.55, 0.65]
-    start_configuration: [0.78, 0.93]
+    - - 0.85
+      - 0.5 
+    start_configuration: [0.5, 0.5]
 
   query_2:
     goal_configurations:
