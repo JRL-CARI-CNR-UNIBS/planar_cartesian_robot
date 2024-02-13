@@ -7,6 +7,7 @@ group_names_map:
   mab_egreedy_eps_decreasing_bernoulli: planar2robots
   mab_egreedy_best_cost: planar2robots
   mab_ts_best_cost: planar2robots
+  mab_ts_best_cost_09999: planar2robots
   
 default_planner_config: informed_rrt
 
@@ -78,4 +79,14 @@ mab_egreedy_best_cost:
   reward_fcn: BestSoFar
   epsilon_coef: 1.0
   epsilon_exp: 0.9998
+  egreedy_reward_forgetting_factor: 1.0 # keep only last reward
+
+mab_ts_best_cost_09999:
+  type: Multigoal
+  inherit_from: informed_rrt
+  policy_type: MultiArmedBandit
+  policy_name: eGreedy
+  reward_fcn: BestSoFar
+  epsilon_coef: 1.0
+  epsilon_exp: 0.9999
   egreedy_reward_forgetting_factor: 1.0 # keep only last reward

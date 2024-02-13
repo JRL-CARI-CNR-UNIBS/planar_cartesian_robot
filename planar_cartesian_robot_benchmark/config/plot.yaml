@@ -2,18 +2,18 @@
 #csv_name: /home/marco/.ros/test_mab_2d/test_2d_scenarios_appended_all.csv
 #csv_name: /home/marco/.ros/test_2d_scenarios_res_q1_all.csv
 #csv_name: /home/marco/.ros/test_2d_scenarios_robots2_res_complex.csv
-csv_name: /home/marco/.ros/test_2d_scenarios_robots2_res.csv
+csv_name: /home/marco/.ros/test_mab_2d/robot2/maze_complex/test_2d_scenarios_robots2_res.csv
 
 figure_folder: /home/marco/.ros
 
 planner_names_map:
-  mixed_strategy_a: mab_ts_best_path
+  mixed_strategy_a: mixed_strategy_a
   informed_rrt: informed_rrt
   mab_ts_bernoulli: mab_ts_bernoulli
-  mab_uniform: mab_uniform_over_goals
-  mab_egreedy_best_cost: mab_egreedy_best_path
+  mab_uniform: mab_uniform
+  mab_egreedy_best_cost: mab_egreedy_best_cost
 
-plot_only_map_names: true
+plot_only_map_names: false
 
 #boxplot_planning_times: [0.05, 0.01, 0.15, 0.2,  0.3]
 boxplot_planning_times: [0.5, 1.0, 1.5, 2.0]
